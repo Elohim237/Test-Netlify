@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+  <form #loginForm="ngForm" class="login" (ngSubmit)="onSubmitLogin()">
+    <section class=" title">
+      <h3 class="welcome"> Huios Nation World</h3>
+    </section>
+    <div class="login-group">
+<!--      <clr-select-container>-->
+<!--        <label class="clr-sr-only">Auth</label>-->
+<!--        <select clrSelect name="type" [(ngModel)]="form.type" required>-->
+<!--          <option *ngFor="let l of logins; let i = index" [value]="i">{{ l.name }}</option>-->
+<!--        </select>-->
+<!--      </clr-select-container>-->
+      <clr-input-container>
+        <label class="clr-sr-only">Nom d'utilisateur</label>
+        <input
+          type="text"
+          name="username"
+          clrInput
+          [placeholder]="placeholders[form.type][0]"
+          [(ngModel)]="form.username"
+          required
+        />
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Mot de passe</label>
+        <input
+          type="password"
+          name="password"
+          clrPassword
+          [placeholder]="placeholders[form.type][1]"
+          [(ngModel)]="form.password"
+          required
+        />
+      </clr-password-container>
+      <div [hidden]="!msg" class="error active">{{ msg }}</div>
+      <button type="submit" class="btn btn-primary" [disabled]="loginForm.form.invalid">SE CONNECTER</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+<audio #audio
+       controls
+       *ngIf="url && isAudioFile()"
+       autoplay="autoplay"
+       (play)="play($event)">
+  <source [src]="url">
+</audio>
+<em *ngIf="isAudioFile()">{{ basename(url) }}</em>
